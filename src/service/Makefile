@@ -1,14 +1,17 @@
-
 all:
+	-rm -f arpa2fst
 EXTRA_CXXFLAGS = -Wno-sign-compare
-include ../config.mk
+include ../kaldi.mk
 
 BINFILES = decode-faster-service decode-faster-two-pass decode-faster-two-pass-service
 
 OBJFILES =
 
-ADDLIBS = ../lm/lm.a ../decoder/decoder.a ../lat/lat.a \
-	  ../cpucompute/cpucompute.a  ../util/util.a ../base/base.a
+ADDLIBS = ../decoder/kaldi-decoder.a ../lat/kaldi-lat.a ../lm/kaldi-lm.a \
+          ../fstext/kaldi-fstext.a ../hmm/kaldi-hmm.a \
+          ../transform/kaldi-transform.a ../gmm/kaldi-gmm.a \
+          ../tree/kaldi-tree.a ../util/kaldi-util.a ../matrix/kaldi-matrix.a \
+          ../base/kaldi-base.a
 
 
 TESTFILES =
